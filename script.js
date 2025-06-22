@@ -17,3 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // TODO: Add validation and submission logic
     });
 });
+
+
+Move script.js to root for GitHub Pages
