@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Pre-Booking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pre-Book Your Meal</h1>
+        <form id="orderForm">
+            <div class="form-group">
+                <label for="vegBiryani">Veg Biryani</label>
+                <input type="number" id="vegBiryani" name="vegBiryani" min="0" value="0">
+            </div>
+            <div class="form-group">
+                <label for="paneerWrap">Paneer Wrap</label>
+                <input type="number" id="paneerWrap" name="paneerWrap" min="0" value="0">
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" rows="3" required></textarea>
+            </div>
+            <button type="submit">Place My Order</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
