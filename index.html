@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Order</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main id="registration" class="page active">
+        <h1>Register</h1>
+        <form id="registrationForm">
+            <label>Full Name<input type="text" id="fullName" required></label>
+            <span class="error" id="nameErr"></span>
+            <label>Email (Gmail)<input type="email" id="gmail" pattern="^[^@\s]+@gmail\.com$" required></label>
+            <span class="error" id="emailErr"></span>
+            <label>Phone Number<input type="tel" id="phone" pattern="\d{10}" required></label>
+            <span class="error" id="phoneErr"></span>
+            <label>Address<textarea id="address" rows="3" required></textarea></label>
+            <span class="error" id="addrErr"></span>
+            <button type="submit">Continue</button>
+        </form>
+    </main>
+
+    <main id="menu" class="page hidden">
+        <h1>Select Items</h1>
+        <div id="categories"></div>
+        <div id="items"></div>
+        <button id="viewCart" class="hidden">View Basket</button>
+        <button id="toCheckout" class="hidden">Proceed to Checkout</button>
+    </main>
+
+    <main id="summary" class="page hidden">
+        <h1>Order Summary</h1>
+        <div id="orderItems"></div>
+        <p id="total"></p>
+        <div>
+            <label><input type="radio" name="payment" checked> Cash on Delivery</label>
+        </div>
+        <button id="confirm">Confirm Order</button>
+        <div id="loading" class="hidden">Placing order...</div>
+        <div id="success" class="hidden">✅ Order Placed!</div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
