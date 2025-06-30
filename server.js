@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const server = http.createServer((req, res) => {
-    let filePath = req.url === '/' ? '/frontend/index.html' : req.url;
+    let filePath = req.url === '/' ? '/index.html' : req.url;
     filePath = path.join(__dirname, filePath);
 
     const ext = path.extname(filePath).toLowerCase();

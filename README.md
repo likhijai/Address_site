@@ -9,6 +9,6 @@ Website for pre-booking meals with address & payment
    ```bash
    npm start
    ```
-   This will start a simple server on [http://localhost:3000](http://localhost:3000) serving the `frontend` files.
+   This will start a simple server on [http://localhost:3000](http://localhost:3000) serving the site.
 
 3. Open the above URL in your browser to view the site.
