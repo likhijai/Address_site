@@ -10,7 +10,7 @@ function showPage(name) {
     pages[name].classList.add('active');
 }
 
-function saveUser() {
+async function saveUser() {
     const name = document.getElementById('fullName');
     const email = document.getElementById('gmail');
     const phone = document.getElementById('phone');
@@ -43,6 +43,19 @@ function saveUser() {
         address: address.value.trim()
     };
     localStorage.setItem('user', JSON.stringify(user));
+
+    try {
+        await fetch('/api/save-address', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(user)
+        });
+        const msg = document.getElementById('regSuccess');
+        if (msg) msg.classList.remove('hidden');
+    } catch (err) {
+        console.error('Failed to save address:', err);
+    }
+
     return true;
 }
 
@@ -135,13 +148,15 @@ function confirmOrder() {
     }, 2000);
 }
 
-document.getElementById('registrationForm').addEventListener('submit', e => {
+document.getElementById('registrationForm').addEventListener('submit', async e => {
     e.preventDefault();
-    if (saveUser()) {
+    if (await saveUser()) {
         showPage('menu');
         renderCategories();
         renderItems();
         updateCartButtons();
+        const msg = document.getElementById('regSuccess');
+        if (msg) msg.classList.add('hidden');
     }
 });
 
