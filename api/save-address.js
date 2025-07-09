@@ -1,4 +1,4 @@
-export default function handler(req, res) {
+module.exports = (req, res) => {
   if (req.method !== 'POST') {
     res.status(405).json({ error: 'Method Not Allowed' });
     return;
@@ -13,4 +13,4 @@ export default function handler(req, res) {
     console.error('Error saving address:', err);
     res.status(500).json({ error: 'Server Error' });
   }
-}
+};
