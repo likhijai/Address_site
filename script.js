@@ -135,14 +135,22 @@ function buildSummary() {
 
 function confirmOrder() {
     document.getElementById('loading').classList.remove('hidden');
+    const order = {
+        user: JSON.parse(localStorage.getItem('user')),
+        cart,
+        total: buildSummary()
+    };
+
+    fetch('/api/save-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(order)
+    }).catch(err => console.error('Failed to log order:', err));
+
     setTimeout(() => {
         document.getElementById('loading').classList.add('hidden');
         document.getElementById('success').classList.remove('hidden');
-        localStorage.setItem('lastOrder', JSON.stringify({
-            user: JSON.parse(localStorage.getItem('user')),
-            cart,
-            total: buildSummary()
-        }));
+        localStorage.setItem('lastOrder', JSON.stringify(order));
         localStorage.removeItem('cart');
         cart = {};
     }, 2000);
