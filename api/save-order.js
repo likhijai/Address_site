@@ -5,12 +5,12 @@ export default function handler(req, res) {
   }
 
   try {
-    const data = req.body;
-    console.log('Received address data:', data);
+    const order = req.body;
+    console.log('Received order:', order);
     // You could persist to a database here
-    res.status(200).json({ message: 'Saved' });
+    res.status(200).json({ message: 'Order logged' });
   } catch (err) {
-    console.error('Error saving address:', err);
+    console.error('Error logging order:', err);
     res.status(500).json({ error: 'Server Error' });
   }
 }
